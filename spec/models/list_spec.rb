@@ -32,7 +32,7 @@ RSpec.describe List, type: :model do
       task2 = Task.create(list_id: list.id, deadline: '2000-01-01 00:00:00')
       list.snooze_all_tasks!
       list.tasks.each do |task|
-        expect(task.deadline).to eq('2000-01-01 01:0:00')
+        expect(task.deadline).to eq('2000-01-01 01:00:00')
       end
     end
   end
@@ -52,6 +52,7 @@ RSpec.describe List, type: :model do
       task1 = Task.create(list_id: list.id, complete: false)
       task2 = Task.create(list_id: list.id, complete: false)
       expect(list.incomplete_tasks).to eq([task1, task2])
+      # expect list.each do, task incomplete = true
     end
   end
 
