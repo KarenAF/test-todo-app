@@ -61,9 +61,12 @@ end
 ##########################################
   describe '#snooze_hour!' do
     it "should extend a task's deadline by an hour" do
+      # deadline = DateTime.new(2001, 2, 3)
+      # task = Task.new(deadline: deadline)
       task = Task.new(deadline: '2000-01-01 00:00:00')
       task.snooze_hour!
       expect(task.deadline).to eq('2000-01-01 01:00:00')
+      # expect(task.deadline).to eq(deadline + 1.hour)
     end
   end
 end
